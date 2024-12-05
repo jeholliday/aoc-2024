@@ -1,0 +1,11 @@
+[package]
+name = "aoc-2024"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+itertools = "0.13"
+lazy_static = "1.5"
+num = "0.4"
+regex = "1.11"
+rustc-hash = "2.1"
