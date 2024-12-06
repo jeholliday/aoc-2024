@@ -1,0 +1,22 @@
+fn solve(input: &str) -> u32 {
+    let _input: Vec<&str> = input.trim().split("\n").map(str::trim).collect();
+    todo!()
+}
+
+fn main() {
+    let input = include_str!("../../inputs/dayXX.txt");
+    let ans = solve(input);
+    println!("{}", ans);
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_solve() {
+        let input = "
+            ";
+        assert_eq!(solve(input), XX);
+    }
+}
