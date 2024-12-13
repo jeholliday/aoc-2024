@@ -20,7 +20,7 @@ fn solve(input: &str) -> u32 {
     }
     let after = after;
     for (a, b) in after.iter().enumerate() {
-        if b.len() > 0 {
+        if !b.is_empty() {
             println!("{}: {:?}", a, b);
         }
     }

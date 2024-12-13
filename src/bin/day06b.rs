@@ -80,7 +80,7 @@ fn causes_loop(
     let mut visited: HashMap<(usize, usize), Vec<Direction>> = HashMap::new();
     visited.insert(guard_pos, vec![guard_dir]);
 
-    while let Some((mut point, (x, y))) = get_point_in_direction(&map, guard_pos, guard_dir) {
+    while let Some((mut point, (x, y))) = get_point_in_direction(map, guard_pos, guard_dir) {
         if (x, y) == obstacle {
             point = Point::Object;
         }

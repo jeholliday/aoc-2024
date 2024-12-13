@@ -38,7 +38,7 @@ fn solve(input: &str) -> usize {
                     let a = &antennas[i];
                     let b = &antennas[j];
 
-                    let mut node = b.clone();
+                    let mut node = *b;
                     while node.is_positive() {
                         if let Some(row) = antinodes.get_mut(node.y as usize) {
                             if let Some(b) = row.get_mut(node.x as usize) {

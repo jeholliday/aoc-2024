@@ -13,7 +13,7 @@ fn solve(input: &str) -> u32 {
     MUL_REGEX
         .captures_iter(input)
         .map(|cap| {
-            if let Some(_) = cap.name("mul") {
+            if cap.name("mul").is_some() {
                 let a: u32 = cap["a"].parse().unwrap();
                 let b: u32 = cap["b"].parse().unwrap();
                 if dont {
@@ -21,10 +21,10 @@ fn solve(input: &str) -> u32 {
                 } else {
                     a * b
                 }
-            } else if let Some(_) = cap.name("do") {
+            } else if cap.name("do").is_some() {
                 dont = false;
                 0
-            } else if let Some(_) = cap.name("dont") {
+            } else if cap.name("dont").is_some() {
                 dont = true;
                 0
             } else {

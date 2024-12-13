@@ -38,7 +38,7 @@ impl Point {
     }
 
     #[allow(dead_code)]
-    fn to_char(&self) -> char {
+    fn as_char(&self) -> char {
         match self {
             Self::Empty => '.',
             Self::Object => '#',
@@ -81,19 +81,19 @@ fn get_point_in_direction(
     }
 }
 
-fn count_visited(visited: &Vec<Vec<bool>>) -> u32 {
+fn count_visited(visited: &[Vec<bool>]) -> u32 {
     visited.iter().flatten().filter(|&&v| v).count() as u32
 }
 
 #[allow(dead_code)]
-fn draw_map(map: &Map, visited: &Vec<Vec<bool>>) {
-    println!("\nVisited: {}", count_visited(&visited));
+fn draw_map(map: &Map, visited: &[Vec<bool>]) {
+    println!("\nVisited: {}", count_visited(visited));
     for (y, row) in map.iter().enumerate() {
         for (x, point) in row.iter().enumerate() {
             print!(
                 "{}",
                 if !visited[y][x] || matches!(point, Point::Guard(_)) {
-                    point.to_char()
+                    point.as_char()
                 } else {
                     'X'
                 }

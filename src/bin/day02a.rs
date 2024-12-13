@@ -40,7 +40,7 @@ fn is_safe_with_trend(report: &[u32], trend: Trend) -> bool {
 
     // Check if the difference between the current and previous values is within the allowed range
     let diff = num::abs(cur as isize - prev as isize) as u32;
-    if diff < MIN_DIFF || diff > MAX_DIFF {
+    if !(MIN_DIFF..=MAX_DIFF).contains(&diff) {
         return false;
     }
 

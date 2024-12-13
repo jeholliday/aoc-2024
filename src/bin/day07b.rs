@@ -16,7 +16,7 @@ fn num_digits(n: u64) -> u32 {
     }
 }
 
-fn apply_operations(value: u64, numbers: &Vec<u64>, operations: &Vec<Operation>) -> bool {
+fn apply_operations(value: u64, numbers: &[u64], operations: &[Operation]) -> bool {
     let mut cur_val = numbers[0];
     for (i, number) in numbers.iter().skip(1).enumerate() {
         match operations[i] {
@@ -36,7 +36,7 @@ fn apply_operations(value: u64, numbers: &Vec<u64>, operations: &Vec<Operation>)
     cur_val == value
 }
 
-fn is_possible(value: u64, numbers: &Vec<u64>) -> bool {
+fn is_possible(value: u64, numbers: &[u64]) -> bool {
     let num_operations = numbers.len() - 1;
     let variants = vec![Operation::Add, Operation::Multiply, Operation::Concatenate];
 

@@ -38,11 +38,11 @@ fn is_word_down_right(grid: &mut Grid, x: usize, y: usize) -> bool {
 }
 
 fn rotate_grid(grid: &Grid) -> Grid {
-    // rotate grid 90 degrees clockwise
+    // Rotate grid 90 degrees clockwise
     let mut new_grid = vec![vec![(0 as char, false); grid.len()]; grid[0].len()];
-    for y in 0..grid.len() {
-        for x in 0..grid[y].len() {
-            new_grid[x][grid.len() - 1 - y] = grid[y][x];
+    for (y, row) in grid.iter().enumerate() {
+        for (x, value) in row.iter().enumerate() {
+            new_grid[x][grid.len() - 1 - y] = *value;
         }
     }
     new_grid
@@ -63,7 +63,6 @@ fn print_grid(grid: &Grid) {
 
 fn solve(input: &str) -> u32 {
     let mut grid: Grid = input
-        .trim()
         .split_whitespace()
         .map(|line| line.chars().map(|c| (c, false)).collect())
         .collect();

@@ -36,8 +36,7 @@ fn score(map: &Map, trailhead: &Point) -> u32 {
     let mut score = 0;
     let mut visited = HashSet::new();
     let mut to_visit = vec![trailhead.clone()];
-    while !to_visit.is_empty() {
-        let cur = to_visit.pop().unwrap();
+    while let Some(cur) = to_visit.pop() {
         if map[cur.y as usize][cur.x as usize] == 9 {
             score += 1;
             continue;

@@ -21,7 +21,7 @@ fn solve(input: &str) -> u32 {
         after[rule.1 as usize].push(rule.0);
     }
     for (a, b) in after.iter().enumerate() {
-        if b.len() > 0 {
+        if !b.is_empty() {
             println!("{}: {:?}", a, b);
         }
     }

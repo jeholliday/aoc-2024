@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 type Map = Vec<Vec<u8>>;
 
 #[derive(Clone, Hash, PartialEq, Eq)]
@@ -35,8 +33,7 @@ fn score(map: &Map, trailhead: &Point) -> u32 {
     assert!(map[trailhead.y as usize][trailhead.x as usize] == 0);
     let mut score = 0;
     let mut to_visit = vec![trailhead.clone()];
-    while !to_visit.is_empty() {
-        let cur = to_visit.pop().unwrap();
+    while let Some(cur) = to_visit.pop() {
         if map[cur.y as usize][cur.x as usize] == 9 {
             score += 1;
             continue;

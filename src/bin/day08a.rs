@@ -40,20 +40,24 @@ fn solve(input: &str) -> usize {
                 y: b.y + (b.y - a.y),
             };
             if node.is_positive() {
-                antinodes
+                if let Some(b) = antinodes
                     .get_mut(node.y as usize)
                     .and_then(|row| row.get_mut(node.x as usize))
-                    .map(|b| *b = true);
+                {
+                    *b = true;
+                }
             }
             let node = Point {
                 x: a.x + (a.x - b.x),
                 y: a.y + (a.y - b.y),
             };
             if node.is_positive() {
-                antinodes
+                if let Some(b) = antinodes
                     .get_mut(node.y as usize)
                     .and_then(|row| row.get_mut(node.x as usize))
-                    .map(|b| *b = true);
+                {
+                    *b = true;
+                }
             }
         }
     }

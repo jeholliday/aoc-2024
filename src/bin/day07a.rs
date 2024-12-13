@@ -1,4 +1,4 @@
-fn is_possible(value: u64, numbers: &Vec<u64>) -> bool {
+fn is_possible(value: u64, numbers: &[u64]) -> bool {
     /* Split the numbers such that the first number is the initial value
      * and the rest of the numbers have a corresponding operation which is
      * used to combine them with the current value.
